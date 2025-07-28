@@ -77,9 +77,3 @@ dafuq? → Error: [Errno 22] Invalid argument: 'emotes_7tv\dafuq?.gif'
 Desarrollado por [@JoanBeltran](https://github.com/JoanBeltran) con asistencia técnica de [ChatGPT](https://openai.com/chatgpt).
 
 Gracias a ChatGPT por el soporte técnico, generación del código, control de errores y optimización del script.
-
----
-
-## 📄 Licencia
-
-MIT License – libre para usar, compartir y modificar. Si mejoras el script, ¡haz un PR!
