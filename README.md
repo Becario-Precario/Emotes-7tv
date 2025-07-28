@@ -55,7 +55,8 @@ output_dir = "emotes_7tv"
 format_priority = ["gif", "webp", "avif"]
 ```
 
-- **`emote_set_id`**: ID del set de 7TV que quieres descargar (puedes copiarlo desde la URL). https://7tv.app/emote-sets/**01HXVFJ9PR000BMH9V93EWGVFC**
+- **`emote_set_id`**: ID del set de 7TV que quieres descargar (puedes copiarlo desde la URL). 
+     Ejemplo: https://7tv.app/emote-sets/ --> **01HXVFJ9PR000BMH9V93EWGVFC**
 - **`output_dir`**: Carpeta donde se guardarán los emotes.
 - **`format_priority`**: Orden de preferencia de formatos (puedes dejar solo uno si lo deseas).
 
