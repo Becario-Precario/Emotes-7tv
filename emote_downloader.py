@@ -5,7 +5,7 @@ from PIL import Image
 from io import BytesIO
 
 # Configuración
-emote_set_id = "01HXVFJ9PR000BMH9V93EWGVFC"
+emote_set_id = "ID_DEL_SET"
 output_dir = "emotes_7tv"
 error_log_path = "errores.txt"
 format_priority = ["gif", "webp", "avif"]
