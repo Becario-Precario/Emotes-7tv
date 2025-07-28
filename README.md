@@ -1,74 +1,70 @@
 # 🧠 7TV Emote Downloader
 
-Este es un script en Python que descarga todos los emotes de un set de [7TV](https://7tv.app) en el formato más óptimo disponible (`GIF`, `WEBP`, o `AVIF`). Está pensado para que funcione de forma robusta, detectando errores, limpiando nombres inválidos en Windows, y priorizando calidad.
-
----
-
-## ✅ Características
-
-- Descarga automática de todos los emotes de un set dado.
-- Soporte para múltiples formatos: `GIF`, `WEBP`, `AVIF`.
-- Limpieza de nombres ilegales en Windows (`?`, `*`, `:`...).
-- Registro de errores en un archivo `errores.txt`.
-- Control de resolución: se prioriza la calidad `4x` si existe.
-- Código limpio, comentado y mantenible.
+Script en Python para descargar todos los emotes de un set de [7TV](https://7tv.app) en el formato más óptimo (`GIF`, `WEBP`, `AVIF`). Maneja errores, limpia nombres inválidos y prioriza calidad.
 
 ---
 
 ## 🚀 Requisitos
 
-Antes de ejecutar, asegúrate de tener Python 3 y estas dependencias:
+* **Python 3.7+**
+* Instala dependencias con:
 
-```bash
-pip install requests pillow
-```
-
-También puedes instalar `imageio` si en un futuro se añade soporte para `.webp` animado → `.gif`:
-
-```bash
-pip install imageio[ffmpeg]
-```
+  ```bash
+  pip install -r requirements.txt
+  ```
 
 ---
 
-## 🛠 Cómo usarlo
+## 🛠 Uso (CLI)
 
-1. Clona este repositorio o descarga el archivo `emote_downloader.py`.
-2. Abre una terminal en la carpeta del script.
-3. Ejecuta el script con Python:
+Ejecuta desde la terminal en la carpeta del proyecto:
 
 ```bash
-python emote_downloader.py
+python emote_downloader.py \
+  --set 01HXVFJ9PR000BM9V93EWGVFC \
+  --out emotes_7tv \
+  --formats gif,webp,avif
 ```
 
-Los emotes se guardarán por defecto en la carpeta `emotes_7tv`.
+Parámetros:
+
+* `--set` (`-s`): ID del set de emotes en 7TV (p. ej. `01HXVFJ9PR000BM9V93EWGVFC`).
+* `--out` (`-o`): Carpeta donde se guardarán los emotes. Por defecto `emotes_7tv`.
+* `--formats` (`-f`): Formatos por prioridad, separados por comas. Por defecto `gif,webp,avif`.
+
+---
+
+## 📊 Ejemplo de salida
+
+```bash
+$ python emote_downloader.py -s 01HXVFJ9PR000BM9V93EWGVFC -o emotes -f gif,webp,avif
+✔️ PETTHEMODS -> GIF descargado
+✔️ peepoRiot -> WEBP descargado
+…
+✅ Descargados: 926
+❌ Fallidos: 0
+```
 
 ---
 
 ## 📝 Configuración
 
-En la parte superior del script puedes ajustar:
+Puedes ajustar variables directamente en CLI o modificar:
 
 ```python
-emote_set_id = "ID_DEL_SET"
-output_dir = "emotes_7tv"
-format_priority = ["gif", "webp", "avif"]
+# En emote_downloader.py
+# format_priority = ["gif", "webp", "avif"]
 ```
-
-- **`emote_set_id`**: ID del set de 7TV que quieres descargar (puedes copiarlo desde la URL). 
-     Ejemplo: https://7tv.app/emote-sets/ --> **01HXVFJ9PR000BMH9V93EWGVFC**
-- **`output_dir`**: Carpeta donde se guardarán los emotes.
-- **`format_priority`**: Orden de preferencia de formatos (puedes dejar solo uno si lo deseas).
 
 ---
 
 ## 🧾 Registro de errores
 
-Si algún emote falla al descargarse, se guardará una entrada en `errores.txt` con el nombre del emote y el motivo:
+Si algún emote falla, se guarda en `errores.txt` dentro de la carpeta de salida:
 
 ```text
-Nails → Ningún formato disponible (gif, webp, avif)
-dafuq? → Error: [Errno 22] Invalid argument: 'emotes_7tv\dafuq?.gif'
+Nails -> formatos no encontrados: gif, webp, avif
+dafuq? -> Error: [Errno 22] Invalid argument
 ```
 
 ---
@@ -78,3 +74,9 @@ dafuq? → Error: [Errno 22] Invalid argument: 'emotes_7tv\dafuq?.gif'
 Desarrollado por [@JoanBeltran](https://github.com/Becario-Precario) con asistencia técnica de [ChatGPT](https://openai.com/chatgpt).
 
 Gracias a ChatGPT por el soporte técnico, generación del código, control de errores y optimización del script.
+
+---
+
+## 📄 Licencia
+
+MIT License.
