@@ -1,0 +1,3 @@
+requests
+pillow
+imageio[ffmpeg]  # opcional, para conversión de WEBP animado a GIF
